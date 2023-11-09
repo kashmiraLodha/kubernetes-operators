@@ -1,0 +1,21 @@
+apiVersion: demo.weatherapi.io/v1
+kind: WeatherReport
+metadata:
+  labels:
+    app.kubernetes.io/name: weatherreport
+    app.kubernetes.io/instance: weatherreport-sample
+    app.kubernetes.io/part-of: weatherapioperator
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: weatherapioperator
+  name: weatherreport-sample
+apiVersion: demo.weatherapi.io/v1
+kind: WeatherReport
+metadata:
+  name: example-weather-report-one
+  namespace: demo
+spec:
+  city: New York
+  days: 2
+status:
+  pod: ""
+  state: ""

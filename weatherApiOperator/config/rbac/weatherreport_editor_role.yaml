@@ -1,0 +1,31 @@
+# permissions for end users to edit weatherreports.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: weatherreport-editor-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: weatherapioperator
+    app.kubernetes.io/part-of: weatherapioperator
+    app.kubernetes.io/managed-by: kustomize
+  name: weatherreport-editor-role
+rules:
+- apiGroups:
+  - demo.weatherapi.io
+  resources:
+  - weatherreports
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - demo.weatherapi.io
+  resources:
+  - weatherreports/status
+  verbs:
+  - get

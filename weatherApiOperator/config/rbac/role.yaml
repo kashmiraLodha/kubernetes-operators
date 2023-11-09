@@ -1,0 +1,32 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: manager-role
+rules:
+- apiGroups:
+  - demo.weatherapi.io
+  resources:
+  - weatherreports
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - demo.weatherapi.io
+  resources:
+  - weatherreports/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - demo.weatherapi.io
+  resources:
+  - weatherreports/status
+  verbs:
+  - get
+  - patch
+  - update

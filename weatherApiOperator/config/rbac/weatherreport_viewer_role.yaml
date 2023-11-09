@@ -1,0 +1,27 @@
+# permissions for end users to view weatherreports.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: weatherreport-viewer-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: weatherapioperator
+    app.kubernetes.io/part-of: weatherapioperator
+    app.kubernetes.io/managed-by: kustomize
+  name: weatherreport-viewer-role
+rules:
+- apiGroups:
+  - demo.weatherapi.io
+  resources:
+  - weatherreports
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - demo.weatherapi.io
+  resources:
+  - weatherreports/status
+  verbs:
+  - get

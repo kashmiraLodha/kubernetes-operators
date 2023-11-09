@@ -1,0 +1,15 @@
+apiVersion: newdemo.volume.io/v1
+kind: VolumesDemo
+metadata:
+  labels:
+    app.kubernetes.io/name: volumesdemo
+    app.kubernetes.io/instance: volumesdemo-sample
+    app.kubernetes.io/part-of: demovolumeoperator
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: demovolumeoperator
+  name: volumesdemo-sample-01
+  namespace: demo-volume
+spec:
+  # TODO(user): Add fields here
+  size: 1
+  name: volume01

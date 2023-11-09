@@ -1,0 +1,4 @@
+## Append samples of your project ##
+resources:
+- newdemo_v1_volumesdemo.yaml
+#+kubebuilder:scaffold:manifestskustomizesamples

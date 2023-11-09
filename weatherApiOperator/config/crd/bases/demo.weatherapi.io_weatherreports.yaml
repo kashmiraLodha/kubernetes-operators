@@ -1,0 +1,65 @@
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.13.0
+  name: weatherreports.demo.weatherapi.io
+spec:
+  group: demo.weatherapi.io
+  names:
+    kind: WeatherReport
+    listKind: WeatherReportList
+    plural: weatherreports
+    singular: weatherreport
+  scope: Namespaced
+  versions:
+  - name: v1
+    schema:
+      openAPIV3Schema:
+        description: WeatherReport is the Schema for the weatherreports API
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation
+              of an object. Servers should convert recognized schemas to the latest
+              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this
+              object represents. Servers may infer this from the endpoint the client
+              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: WeatherReportSpec defines the desired state of WeatherReport
+            properties:
+              city:
+                description: Foo is an example field of WeatherReport. Edit weatherreport_types.go
+                  to remove/update
+                type: string
+              days:
+                type: integer
+            required:
+            - city
+            - days
+            type: object
+          status:
+            description: WeatherReportStatus defines the observed state of WeatherReport
+            properties:
+              pod:
+                type: string
+              state:
+                description: 'INSERT ADDITIONAL STATUS FIELD - define observed state
+                  of cluster Important: Run "make" to regenerate code after modifying
+                  this file'
+                type: string
+            required:
+            - pod
+            - state
+            type: object
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
